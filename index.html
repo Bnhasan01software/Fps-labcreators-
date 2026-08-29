@@ -1,79 +1,918 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FPSLAB CREATORS</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
 
-    body {
-      background-color: #0b0d17;
-      color: #e0e6ed;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    /* Sol üst köşe başlığı */
-    header {
-      padding: 20px 30px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #00d2ff;
-      text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-    }
+    <meta
+        name="google-site-verification"
+        content="PZq-HVX4CWwk_kfqoIYYwxJFqxrDffpBiLegGARPI3k"
+    >
 
-    /* Ekranın ortasındaki kutu */
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+    <title>FPS Lab | FPS Calculator</title>
 
-    .card {
-      background: #161b22;
-      border: 1px solid #00d2ff;
-      box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
-      border-radius: 12px;
-      padding: 40px;
-      max-width: 650px;
-      text-align: center;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
+    <meta
+        name="description"
+        content="FPS Lab: donanımını, oyununu ve grafik ayarlarını seç. Tahmini FPS, 1% low ve darboğaz analizini hesapla."
+    >
 
-    .card a {
-      color: #00d2ff;
-      text-decoration: none;
-      word-break: break-all;
-      font-weight: 600;
-    }
+    <meta
+        name="robots"
+        content="index, follow"
+    >
 
-    .card a:hover {
-      text-decoration: underline;
-      color: #38ef7d;
+    <link
+        rel="canonical"
+        href="https://sdfsgedsfhstjhfghfda.github.io/fps-lab/"
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <meta
+        property="og:title"
+        content="FPS Lab | FPS Calculator"
+    >
+
+    <meta
+        property="og:description"
+        content="Donanımını ve oyununu seç, tahmini FPS performansını hesapla."
+    >
+
+    <meta
+        property="og:url"
+        content="https://sdfsgedsfhstjhfghfda.github.io/fps-lab/"
+    >
+
+    <meta
+        property="og:image"
+        content="https://sdfsgedsfhstjhfghfda.github.io/fps-lab/favicon.svg"
+    >
+
+    <meta
+        name="twitter:card"
+        content="summary"
+    >
+
+    <meta
+        name="twitter:title"
+        content="FPS Lab | FPS Calculator"
+    >
+
+    <meta
+        name="twitter:description"
+        content="Donanımını ve oyununu seç, tahmini FPS performansını hesapla."
+    >
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "FPS Lab",
+        "alternateName": ["FPSLab", "fps-lab"],
+        "url": "https://sdfsgedsfhstjhfghfda.github.io/fps-lab/",
+        "description": "Donanım, oyun ve grafik ayarlarına göre tahmini FPS hesaplayan araç.",
+        "applicationCategory": "UtilitiesApplication",
+        "inLanguage": "tr",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
     }
-  </style>
+    </script>
+
+    <link
+        rel="icon"
+        href="favicon.svg"
+        type="image/svg+xml"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="favicon.svg"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css?v=5"
+    >
+
+    <link
+        rel="stylesheet"
+        href="auth.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="search.css"
+    >
 </head>
-<body>
 
-  <header>
-    FPSLAB CREATORS⚡️
-  </header>
+<body class="auth-locked">
 
-  <main>
-    <div class="card">
-      Merhaba ben <a href="https://sdfsgedsfhstjhfghfda.github.io/fps-lab/" target="_blank">https://sdfsgedsfhstjhfghfda.github.io/fps-lab/</a> geliştiricilerinden biriyim gerekli işlemci ve oyun bilgilerini veriyorum biz bu site için çok fazla çalışıyoruz lütfen destek verin
+    <div
+        id="auth-gate"
+        class="auth-gate"
+    >
+
+        <div class="auth-card">
+
+            <div class="badge">
+                FPS LAB ACCOUNT
+            </div>
+
+            <h2 id="auth-title">
+                Giriş yap
+            </h2>
+
+            <p id="auth-subtitle">
+                FPS Lab’e devam etmek için hesabınla giriş yap.
+            </p>
+
+            <div
+                id="auth-setup"
+                class="auth-setup"
+                hidden
+            >
+                <code>url</code> ve <code>anonKey</code> değerlerini
+                <code>js/supabase-config.js</code> dosyasına yaz.
+            </div>
+
+            <form id="auth-form">
+
+                <label for="auth-username">
+                    KULLANICI ADI
+                </label>
+
+                <input
+                    id="auth-username"
+                    type="text"
+                    autocomplete="username"
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[A-Za-z0-9_]+"
+                    required
+                >
+
+                <div id="auth-password-wrap">
+
+                    <label for="auth-password">
+                        ŞİFRE
+                    </label>
+
+                    <input
+                        id="auth-password"
+                        type="password"
+                        autocomplete="current-password"
+                        minlength="8"
+                    >
+
+                </div>
+
+                <div
+                    id="auth-generated-wrap"
+                    hidden
+                >
+
+                    <label>
+                        RASTGELE ŞİFREN
+                    </label>
+
+                    <div class="auth-generated">
+
+                        <code id="auth-generated-password"></code>
+
+                        <button
+                            type="button"
+                            class="auth-toggle"
+                            id="auth-regenerate"
+                        >
+                            Yenile
+                        </button>
+
+                    </div>
+
+                    <small class="auth-hint">
+                        Bu şifreyi bir yere kaydet. Bir daha gösterilmez.
+                    </small>
+
+                </div>
+
+                <div class="auth-actions">
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                        id="auth-submit"
+                    >
+                        Giriş yap
+                    </button>
+
+                    <button
+                        type="button"
+                        class="auth-toggle"
+                        id="auth-toggle-mode"
+                    >
+                        Hesabın yok mu? Kayıt ol
+                    </button>
+
+                </div>
+
+                <div
+                    id="auth-message"
+                    class="auth-message"
+                ></div>
+
+            </form>
+
+        </div>
+
     </div>
-  </main>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <img
+                class="logo-icon"
+                src="logo.svg"
+                alt=""
+            >
+            FPS<span>LAB</span>
+        </div>
+
+        <nav>
+            <a href="#calculator">FPS Calculator</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+
+            <a
+                href="https://sdfsgedsfhstjhfghfda.github.io/geri-bildirim-sitesi/"
+                class="feedback-button"
+                target="_blank"
+            >
+                GERİ BİLDİRİM
+            </a>
+
+            <div
+                id="auth-account"
+                class="auth-account"
+                hidden
+            >
+                <span
+                    id="auth-user-email"
+                    class="auth-user"
+                ></span>
+
+                <button
+                    type="button"
+                    class="auth-logout"
+                    id="auth-logout"
+                >
+                    ÇIKIŞ
+                </button>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="hardware-search">
+
+        <div class="hardware-search-inner">
+
+            <input
+                id="hardware-search-input"
+                type="search"
+                autocomplete="off"
+                spellcheck="false"
+                placeholder="istediğiniz ekran kartı, işlemci ve oyunları arayın"
+            >
+
+            <div
+                id="hardware-search-results"
+                class="hardware-search-results"
+                hidden
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ PC PERFORMANCE CALCULATOR
+            </div>
+
+            <h1>
+                YOUR HARDWARE.<br>
+                <span>YOUR FPS.</span>
+            </h1>
+
+            <p>
+                Donanımını, oyununu ve grafik ayarlarını seç.
+                FPS Lab sisteminin tahmini oyun performansını hesaplasın.
+            </p>
+
+            <a
+                href="#calculator"
+                class="hero-button"
+            >
+                FPS HESAPLAYICIYA BAŞLA
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CALCULATOR
+    ========================== -->
+
+    <main id="calculator">
+
+        <section class="calculator-section">
+
+            <div class="section-title">
+
+                <div class="badge">
+                    PERFORMANCE ENGINE
+                </div>
+
+                <h2>
+                    FPS CALCULATOR
+                </h2>
+
+                <p>
+                    Sistemini oluştur ve tahmini performansını hesapla.
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+                <!-- LEFT SIDE -->
+
+                <div class="settings-panel">
+
+                    <h3>
+                        SYSTEM CONFIGURATION
+                    </h3>
+
+
+                    <!-- GAME -->
+
+                    <div class="input-group">
+
+                        <label for="game">
+                            OYUN
+                        </label>
+
+                        <select id="game">
+                        </select>
+
+                    </div>
+
+
+                    <!-- GPU -->
+
+                    <div class="input-group">
+
+                        <label for="gpu">
+                            EKRAN KARTI
+                        </label>
+
+                        <select id="gpu">
+                        </select>
+
+                    </div>
+
+
+                    <!-- CPU -->
+
+                    <div class="input-group">
+
+                        <label for="cpu">
+                            İŞLEMCİ
+                        </label>
+
+                        <select id="cpu">
+                        </select>
+
+                    </div>
+
+
+                    <!-- RAM -->
+
+                    <div class="input-group">
+
+                        <label for="ram">
+                            RAM
+                        </label>
+
+                        <select id="ram">
+
+                            <option value="8">
+                                8 GB
+                            </option>
+
+                            <option value="16">
+                                16 GB
+                            </option>
+
+                            <option value="32" selected>
+                                32 GB
+                            </option>
+
+                            <option value="64">
+                                64 GB
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- RESOLUTION -->
+
+                    <div class="input-group">
+
+                        <label for="resolution">
+                            ÇÖZÜNÜRLÜK
+                        </label>
+
+                        <select id="resolution">
+
+                            <option value="1080">
+                                1920 × 1080 • FHD
+                            </option>
+
+                            <option value="1440" selected>
+                                2560 × 1440 • 2K / QHD
+                            </option>
+
+                            <option value="1600">
+                                2560 × 1600 • QHD+
+                            </option>
+
+                            <option value="2160">
+                                3840 × 2160 • 4K
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- QUALITY -->
+
+                    <div class="input-group">
+
+                        <label for="quality">
+                            GRAFİK KALİTESİ
+                        </label>
+
+                        <select id="quality">
+
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option value="medium">
+                                Medium
+                            </option>
+
+                            <option value="high" selected>
+                                High
+                            </option>
+
+                            <option value="ultra">
+                                Ultra
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- RAY TRACING -->
+
+                    <div class="input-group">
+
+                        <label for="rt">
+                            RAY TRACING
+                        </label>
+
+                        <select id="rt">
+
+                            <option value="off" selected>
+                                Kapalı
+                            </option>
+
+                            <option value="on">
+                                Açık
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- UPSCALER -->
+
+                    <div class="input-group">
+
+                        <label for="upscaler">
+                            UPSCALING
+                        </label>
+
+                        <select id="upscaler">
+
+                            <option value="native">
+                                Native
+                            </option>
+
+                            <option value="quality" selected>
+                                Quality
+                            </option>
+
+                            <option value="balanced">
+                                Balanced
+                            </option>
+
+                            <option value="performance">
+                                Performance
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- FRAME GENERATION -->
+
+                    <div class="input-group">
+
+                        <label for="fg">
+                            FRAME GENERATION
+                        </label>
+
+                        <select id="fg">
+
+                            <option value="off" selected>
+                                Kapalı
+                            </option>
+
+                            <option value="2x">
+                                2X
+                            </option>
+
+                            <option value="3x">
+                                3X
+                            </option>
+
+                            <option value="4x">
+                                4X
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        class="calculate-button"
+                        id="calculateButton"
+                    >
+                        ⚡ FPS HESAPLA
+                    </button>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="results-panel">
+
+                    <div class="result-header">
+
+                        <div>
+
+                            <span>
+                                ESTIMATED PERFORMANCE
+                            </span>
+
+                            <h3 id="resultGame">
+                                Cyberpunk 2077
+                            </h3>
+
+                        </div>
+
+                        <div class="status">
+                            ESTIMATED
+                        </div>
+
+                    </div>
+
+
+                    <div class="main-fps">
+
+                        <div
+                            class="fps-number"
+                            id="fpsValue"
+                        >
+                            0
+                        </div>
+
+                        <div class="fps-label">
+                            AVERAGE FPS
+                        </div>
+
+                        <div
+                            class="fps-range"
+                            id="fpsRange"
+                        >
+                            0 - 0 FPS
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOW FPS -->
+
+                    <div class="stats-grid">
+
+                        <div class="stat-card">
+
+                            <span>
+                                1% LOW
+                            </span>
+
+                            <strong id="lowFps">
+                                0
+                            </strong>
+
+                            <small>
+                                FPS
+                            </small>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                0.1% LOW
+                            </span>
+
+                            <strong id="zeroLow">
+                                0
+                            </strong>
+
+                            <small>
+                                FPS
+                            </small>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span>
+                                RENDER FPS
+                            </span>
+
+                            <strong id="renderFps">
+                                0
+                            </strong>
+
+                            <small>
+                                FPS
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- HARDWARE -->
+
+                    <div class="hardware-info">
+
+                        <div class="hardware-item">
+
+                            <span>
+                                GPU
+                            </span>
+
+                            <strong id="gpuResult">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="hardware-item">
+
+                            <span>
+                                CPU
+                            </span>
+
+                            <strong id="cpuResult">
+                                -
+                            </strong>
+
+                        </div>
+
+
+                        <div class="hardware-item">
+
+                            <span>
+                                LIMIT
+                            </span>
+
+                            <strong id="bottleneck">
+                                -
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURES
+        ========================== -->
+
+        <section
+            id="features"
+            class="features-section"
+        >
+
+            <div class="section-title">
+
+                <div class="badge">
+                    FPS LAB ENGINE
+                </div>
+
+                <h2>
+                    WHAT WE ANALYZE
+                </h2>
+
+            </div>
+
+
+            <div class="features">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🎮
+                    </div>
+
+                    <h3>
+                        GAME DATABASE
+                    </h3>
+
+                    <p>
+                        Farklı oyun motorları ve oyun türleri
+                        için performans verileri.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🖥️
+                    </div>
+
+                    <h3>
+                        GPU PERFORMANCE
+                    </h3>
+
+                    <p>
+                        NVIDIA, AMD ve Intel ekran kartları
+                        için performans karşılaştırmaları.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🧠
+                    </div>
+
+                    <h3>
+                        CPU IMPACT
+                    </h3>
+
+                    <p>
+                        İşlemci performansının oyun FPS'i
+                        üzerindeki etkisini hesaba katar.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        GRAPHICS SETTINGS
+                    </h3>
+
+                    <p>
+                        Çözünürlük, RT, DLSS, FSR ve
+                        Frame Generation gibi ayarlar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer id="about">
+
+        <div class="logo">
+            <img
+                class="logo-icon"
+                src="logo.svg"
+                alt=""
+            >
+            FPS<span>LAB</span>
+        </div>
+
+        <p>
+            PC performance estimation platform.
+        </p>
+
+        <span>
+            © 2026 FPS Lab
+        </span>
+
+    </footer>
+
+
+    <!-- DATABASE -->
+
+    <script src="data/gpus.js"></script>
+    <script src="data/cpus.js"></script>
+    <script src="data/games.js"></script>
+    <script src="data/benchmarks.js"></script>
+
+    <!-- ENGINE -->
+
+    <script src="js/calculator.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
 
 </body>
+
 </html>
